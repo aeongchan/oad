@@ -14,7 +14,7 @@ const init = `- osu assets downloader
 `
 
 const MAPDL_URL = [
-    "https://proxy.nerinyan.moe/d/",
+    "https://api.nerinyan.moe/v2/d/",
     "https://catboy.best/d/",
     "https://osu.direct/d/"
 ]
@@ -63,7 +63,7 @@ const download = async (id, server) => {
         const ext = filename.split(".").pop()
         if (ext == "mp3" || ext == "ogg" || ext == "wav") mime = `audio/${ext}`
         else if (ext == "jpg" || ext == "png") mime = `image/${ext}`
-        else mime = "text/plain"
+        else mime = "text/plain; charset=UTF=8"
 
         const fileBlob = await files[i].getData(new zip.BlobWriter(mime))
         const a = document.createElement("a")
